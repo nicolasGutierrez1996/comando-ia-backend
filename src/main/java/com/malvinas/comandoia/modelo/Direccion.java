@@ -10,17 +10,21 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class direccion {
+public class Direccion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    @Column(name = "localidad",nullable = false,length = 50)
-    String localidad;
+    private int id;
+
+    @Column(name = "localidad", nullable = false, length = 50)
+    private String localidad;
+
     @Column(name = "barrio")
-    String barrio;
+    private String barrio;
+
     @Column(name = "calle")
-    String calle;
+    private String calle;
+
     @Column(name = "numero_calle")
-    int numero_calle;
+    private Integer numero_calle;  // permite null si no se sabe el número
 }
