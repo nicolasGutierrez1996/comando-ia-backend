@@ -6,21 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "direccion")
+@Table(name = "rol")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class direccion {
+
+public class rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    @Column(name = "localidad",nullable = false,length = 50)
-    String localidad;
-    @Column(name = "barrio")
-    String barrio;
-    @Column(name = "calle")
-    String calle;
-    @Column(name = "numero_calle")
-    int numero_calle;
+    @Column(name = "nombre", nullable = false, length = 50)
+    String nombre;
+    @Column(name = "descripcion")
+    String descripcion;
 }
