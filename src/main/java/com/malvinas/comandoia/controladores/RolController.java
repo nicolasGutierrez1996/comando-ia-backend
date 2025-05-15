@@ -13,20 +13,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/roles")
+@RestController //ES UN CONTROLADOR
+@RequestMapping("/api/roles") //PARA DEFINIR UNA URL DE TU CONTROLADOR
 @CrossOrigin(origins = "*") // para permitir peticiones desde Angular durante el desarrollo
 public class RolController {
 
-    @Autowired
-    private RolService rolService;
+    @Autowired //ES PARA DECIR QUE ES UNA DEPENDENCIA
+    private RolService rolService; //LLAMAS AL SERVICIO CREADO
 
-    @GetMapping
+    @GetMapping //PARA LOS METODOS QUE SON DE CONSULTA A LA BASE
     public Iterable<Rol> listarRoles() {
+
         return rolService.listarRoles();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") //PARA LOS METODOS QUE SON DE CONSULTA A LA BASE Y QUERES PASARLE UN PARAMETRO
     public ResponseEntity<?> obtenerRolPorId(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
 
@@ -40,10 +41,11 @@ public class RolController {
 
         response.put("success", true);
         response.put("rol", rol.get());
+
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping
+    @PostMapping //AGREGO ALGO A LA BASE
     public ResponseEntity<?> crearRol(@Valid @RequestBody Rol rol, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         Map<String, String> errores = new HashMap<>();
@@ -65,7 +67,7 @@ public class RolController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") //PARA EDITAR
     public ResponseEntity<?> actualizarRol(@PathVariable Integer id, @Valid @RequestBody Rol rol, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
         Map<String, String> errores = new HashMap<>();
@@ -95,7 +97,7 @@ public class RolController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}") //BORRAR
     public ResponseEntity<?> eliminarRol(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
 

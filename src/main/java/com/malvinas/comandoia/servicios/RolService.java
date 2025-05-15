@@ -14,18 +14,22 @@ public class RolService {
     private RolRepository rolRepository;
 
     public Iterable<Rol> listarRoles() {
+
         return rolRepository.findAll();
     }
 
     public Optional<Rol> obtenerRolPorId(Integer id) {
+
         return rolRepository.findById(id);
     }
 
     public Rol guardarRol(Rol rol) {
+
         return rolRepository.save(rol);
     }
 
     public void eliminarRol(Integer id) {
+
         rolRepository.deleteById(id);
     }
 }
