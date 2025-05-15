@@ -28,5 +28,14 @@ public class TipoObra {
     @Column(name = "fecha_ultima_actualizacion")
     private LocalDateTime fecha_ultima_actualizacion;
 
+    @PrePersist
+    private void antesDePersistir(){
+        this.fecha_creacion=LocalDateTime.now();
+    }
+    @PreUpdate
+    private void antesDeModificar(){
+        this.fecha_ultima_actualizacion=LocalDateTime.now();
+    }
+
 
 }

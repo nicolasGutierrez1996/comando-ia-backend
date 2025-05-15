@@ -28,4 +28,14 @@ public class EstadoObra {
     @Column(name = "fecha_ultima_actualizacion")
     private LocalDateTime fecha_ultima_actualizacion;
 
+    @PrePersist
+    private void prePersist() {
+        this.fecha_creacion = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void preUpdate() {
+        this.fecha_ultima_actualizacion = LocalDateTime.now();
+    }
+
 }

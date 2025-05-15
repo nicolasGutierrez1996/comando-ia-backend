@@ -22,11 +22,14 @@ public class ObraPublica {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "tipo_obra", nullable = false, length = 100)
-    private String tipo_obra;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "tipo_id", foreignKey = @ForeignKey(name = "FK_TIPO_ID"))
+    private TipoObra tipo_obra;
 
-    @Column(name = "estado", nullable = false, length = 50)
-    private String estado;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "estado_id", foreignKey = @ForeignKey(name = "FK_ESTADO_ID"))
+    private EstadoObra estado;
 
     @Column(name = "avance_fisico")
     private double avance_fisico;

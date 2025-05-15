@@ -19,20 +19,23 @@ public class Reclamo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "tipo_reclamo",nullable = false)
-    private String tipo_reclamo;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "tipo_id", foreignKey = @ForeignKey(name = "FK_TIPO_ID"))
+    private TipoReclamo tipo_reclamo;
 
     @Column(name = "fecha_reclamo")
     private LocalDateTime fecha_reclamo;
 
-    @Column(name = "estado",length = 50)
-    private String estado;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "estado_id", foreignKey = @ForeignKey(name = "FK_ESTADO_ID"))
+    private EstadoReclamo estado;
 
     @Column(name = "tiempo_resolucion")
     private int tiempo_resolucion;
 
-    @Column(name = "nivel_satisfaccion")
-    private int nivel_satisfaccion;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "nivel_satisfaccion_id", foreignKey = @ForeignKey(name = "FK_NIVEL_SATISFACCION_ID"))
+    private TipoNivelSatisfaccion nivel_satisfaccion;
 
     @Column(name = "fecha_creacion")
     private LocalDateTime fecha_creacion;

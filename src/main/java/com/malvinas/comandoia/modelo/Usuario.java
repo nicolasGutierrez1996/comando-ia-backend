@@ -34,13 +34,11 @@ public class Usuario {
     @Column(name = "fecha_ultima_actualizacion")
     private LocalDateTime fechaUltimaActualizacion;
 
-    @Column
-    private boolean estado;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "estado_id", foreignKey = @ForeignKey(name = "FK_ESTADO_ID"))
+    private EstadoUsuario estado;
 
-    @ManyToOne(
-            optional = false,
-            cascade = { CascadeType.PERSIST, CascadeType.MERGE }
-    )
+    @ManyToOne(optional = false)
     @JoinColumn(name = "rol_id", foreignKey = @ForeignKey(name = "FK_ROL_ID"))
     private Rol rol;
 

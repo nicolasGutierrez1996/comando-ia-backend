@@ -1,5 +1,6 @@
 package com.malvinas.comandoia.modelo;
 
+import com.malvinas.comandoia.modelo.enumeradores.TipoRoles;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +18,8 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "nombre", nullable = false, length = 50)
-    private String nombre;
+    @Column(name = "tipo", nullable = false)
+    private TipoRoles tipo;
 
     @Column(name = "descripcion")
     private String descripcion;
