@@ -11,7 +11,7 @@ public class ObraPublicaService {
     @Autowired
     private ObraPublicaRepository obraPublicaRepository;
 
-    public Iterable<ObraPublica> listarObraPublica() {
+    public Iterable<ObraPublica> listarObrasPublicas() {
         return obraPublicaRepository.findAll();
     }
 

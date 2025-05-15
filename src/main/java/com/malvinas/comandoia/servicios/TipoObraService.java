@@ -25,7 +25,7 @@ public class TipoObraService {
         return tipoObraRepository.findById(id);
     }
 
-    public TipoObra guardarRol(TipoObra tipoObra) {
+    public TipoObra guardarTipoObra(TipoObra tipoObra) {
 
         return tipoObraRepository.save(tipoObra);
     }

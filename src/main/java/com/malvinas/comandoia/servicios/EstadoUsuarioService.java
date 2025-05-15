@@ -23,7 +23,7 @@ public class EstadoUsuarioService {
         return estadoUsuarioRepository.findById(id);
     }
 
-    public EstadoUsuario guardarEstadoReclamo(EstadoUsuario estadoUsuario) {
+    public EstadoUsuario guardarEstadoUsuario(EstadoUsuario estadoUsuario) {
         return estadoUsuarioRepository.save(estadoUsuario);
     }
 
