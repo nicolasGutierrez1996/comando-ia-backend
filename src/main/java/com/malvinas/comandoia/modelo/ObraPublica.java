@@ -22,6 +22,9 @@ public class ObraPublica {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
+    @Column(name = "descripcion")
+    private String descripcion;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "tipo_id", foreignKey = @ForeignKey(name = "FK_TIPO_ID"))
     private TipoObra tipo_obra;
@@ -57,7 +60,7 @@ public class ObraPublica {
 
     @ManyToOne(
             optional = false,
-            cascade = { CascadeType.PERSIST, CascadeType.MERGE }
+            cascade = { CascadeType.MERGE }
     )
     @JoinColumn(name = "direccion_id", foreignKey = @ForeignKey(name = "FK_DIRECCION_ID"))
     private Direccion direccion;

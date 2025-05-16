@@ -19,6 +19,9 @@ public class Reclamo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "descripcion")
+    private String descripcion;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "tipo_id", foreignKey = @ForeignKey(name = "FK_TIPO_ID"))
     private TipoReclamo tipo_reclamo;
@@ -46,7 +49,7 @@ public class Reclamo {
 
     @ManyToOne(
             optional = false,
-            cascade = { CascadeType.PERSIST, CascadeType.MERGE }
+            cascade = { CascadeType.MERGE }
     )
     @JoinColumn(name = "direccion_id", foreignKey = @ForeignKey(name = "FK_DIRECCION_ID"))
     private Direccion direccion;
